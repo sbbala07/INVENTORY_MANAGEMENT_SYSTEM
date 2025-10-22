@@ -14,3 +14,17 @@ inventory_flask/
     ├── bill.html          # Bill summary page
     └── catalogue.html     # Catalogue page showing products without quantity
 
+
+Flask(__name__) → Creates the app.
+
+render_template → Shows an HTML page.
+
+request → Reads what the user typed in forms.
+
+redirect and url_for → Send the user to another page.
+
+flash → Shows messages like “Item added successfully!”
+
+session → Temporary storage for things like the shopping cart.
+
+secret_key → Needed for session to work.
