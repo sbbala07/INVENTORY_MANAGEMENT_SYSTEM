@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Inventory Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- bootstrap for layout -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="py-3 bg-dark">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div>
+        <h4 class="text-white mb-0">🛒 Inventory Management System</h4>
+        <small class="text-muted">Modern dark theme • Powered by Bala | Flask</small>
+      </div>
+      <div>
+        <a class="btn btn-success btn-sm me-2" href="{{ url_for('add_item') }}">Add Item</a>
+        <a class="btn btn-warning btn-sm me-2" href="{{ url_for('update_item') }}">Update Item</a>
+        <a class="btn btn-danger btn-sm me-2" href="{{ url_for('delete_item') }}">Delete Item</a>
+        <a class="btn btn-info btn-sm me-2" href="{{ url_for('catalogue') }}">Show Catalogue</a>
+        <a class="btn btn-secondary btn-sm me-2" href="{{ url_for('low_stock') }}">Low Stock</a>
+        <a class="btn btn-primary btn-sm me-2" href="{{ url_for('purchase') }}">Purchase</a>
+        <a class="btn btn-outline-light btn-sm" href="{{ url_for('index') }}">Refresh</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for cat, msg in messages %}
+          <div class="alert alert-{{ 'info' if cat=='info' else cat }} alert-dismissible fade show" role="alert">
+            {{ msg }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="text-end pe-4 pb-2 text-muted">Powered by Bala | Flask</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

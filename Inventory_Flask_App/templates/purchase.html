@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row g-3">
+  <div class="col-md-7">
+    <div class="card bg-card">
+      <div class="card-body">
+        <h5 class="text-white">Reference Map</h5>
+        <div class="table-responsive">
+          <table class="table table-dark table-striped">
+            <thead><tr><th>Ref</th><th>ID</th><th>Name</th><th>Price</th><th>Stock</th></tr></thead>
+            <tbody>
+              {% for ref, iid in ref_map.items() %}
+                {% set d = inv[iid] %}
+                <tr>
+                  <td>{{ ref }}</td>
+                  <td>{{ iid }}</td>
+                  <td>{{ d.name }}</td>
+                  <td>{{ "%.2f"|format(d.price) }}</td>
+                  <td>{{ d.quantity }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-5">
+    <div class="card bg-card">
+      <div class="card-body">
+        <h5 class="text-white">Add to Cart</h5>
+        <form method="post" action="{{ url_for('add_to_cart') }}">
+          <div class="mb-2">
+            <label class="form-label text-muted">Ref No</label>
+            <input name="ref" class="form-control form-control-dark" placeholder="Enter Ref (e.g. 1)">
+          </div>
+          <div class="mb-3">
+            <label class="form-label text-muted">Qty</label>
+            <input name="qty" type="number" min="1" class="form-control form-control-dark">
+          </div>
+          <div class="d-flex">
+            <button class="btn btn-warning me-2" type="submit">Add to Cart</button>
+            <form method="post" action="{{ url_for('clear_cart') }}" style="display:inline">
+              <button class="btn btn-secondary" type="submit">Clear Cart</button>
+            </form>
+          </div>
+        </form>
+
+        <hr class="my-3">
+
+        <h6 class="text-white">Cart</h6>
+        {% if cart %}
+          <ul class="list-group list-group-flush mb-3">
+            {% for iid, d in cart.items() %}
+              <li class="list-group-item bg-dark text-white d-flex justify-content-between align-items-center">
+                <div>{{ iid }} — {{ d.name }} <small class="text-muted">x{{ d.quantity }}</small></div>
+                <div>{{ "%.2f"|format(d.price * d.quantity) }}</div>
+              </li>
+            {% endfor %}
+          </ul>
+          <form method="post" action="{{ url_for('checkout') }}">
+            <button class="btn btn-success w-100" type="submit">Checkout</button>
+          </form>
+        {% else %}
+          <p class="text-muted">Cart is empty.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

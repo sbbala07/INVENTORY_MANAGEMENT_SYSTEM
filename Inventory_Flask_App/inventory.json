@@ -1,0 +1,42 @@
+{
+    "A101": {
+        "name": "Apple",
+        "quantity": 75,
+        "price": 25.0
+    },
+    "M1": {
+        "name": "Mango",
+        "quantity": 400,
+        "price": 20.0
+    },
+    "G11": {
+        "name": "Grapes",
+        "quantity": 1000,
+        "price": 10.0
+    },
+    "A11": {
+        "name": "Avocado",
+        "quantity": 30,
+        "price": 50.0
+    },
+    "O1": {
+        "name": "Orange",
+        "quantity": 3,
+        "price": 15.0
+    },
+    "L102": {
+        "name": "Lemon",
+        "quantity": 0,
+        "price": 5.0
+    },
+    "G1": {
+        "name": "Guava",
+        "quantity": 2,
+        "price": 10.0
+    },
+    "B11": {
+        "name": "Banana",
+        "quantity": 50,
+        "price": 10.0
+    }
+}
