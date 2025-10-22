@@ -1,1 +1,16 @@
+inventory_flask/
+│
+├── app.py                 # Main Python file with all Flask routes and logic
+├── inventory.json         # Stores all inventory data
+├── static/
+│   └── style.css          # CSS file for styling the web app
+└── templates/
+    ├── base.html          # Base layout with navbar/footer
+    ├── index.html         # Main page showing inventory
+    ├── add.html           # Add new item form
+    ├── update.html        # Update item form
+    ├── delete.html        # Delete item form
+    ├── purchase.html      # Purchase form and cart
+    ├── bill.html          # Bill summary page
+    └── catalogue.html     # Catalogue page showing products without quantity
 
