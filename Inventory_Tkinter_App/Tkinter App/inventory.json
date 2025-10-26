@@ -1,0 +1,47 @@
+{
+    "C1": {
+        "name": "Cucumber",
+        "qty": 50,
+        "price": 10.0
+    },
+    "O101": {
+        "name": "Onion",
+        "qty": 125,
+        "price": 5.0
+    },
+    "C101": {
+        "name": "Carrot",
+        "qty": 125,
+        "price": 15.0
+    },
+    "B": {
+        "name": "Broccoli",
+        "qty": 2,
+        "price": 25.0
+    },
+    "T11": {
+        "name": "Tomato",
+        "qty": 300,
+        "price": 10.0
+    },
+    "P1": {
+        "name": "Potato",
+        "qty": 300,
+        "price": 10.0
+    },
+    "B101": {
+        "name": "Beetroot",
+        "qty": 4,
+        "price": 20.0
+    },
+    "C102": {
+        "name": "Cabbage",
+        "qty": 3,
+        "price": 30.0
+    },
+    "A101": {
+        "name": "Avocado",
+        "qty": 50,
+        "price": 50.0
+    }
+}
