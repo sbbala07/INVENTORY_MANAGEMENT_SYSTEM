@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card bg-card mx-auto" style="max-width:760px">
+  <div class="card-body">
+    <h5 class="card-title text-white">Update Item</h5>
+
+    <form method="post" action="{{ url_for('update_item') }}">
+      <div class="mb-3">
+        <label class="form-label text-muted">Select Item ID</label>
+        <select name="item_id_select" class="form-select form-select-dark">
+          <option value="">-- choose item --</option>
+          {% for iid, d in inventory.items() %}
+            <option value="{{ iid }}">{{ iid }} — {{ d.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-muted">Name (leave blank to keep)</label>
+        <input name="name" class="form-control form-control-dark">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-muted">Quantity (leave blank to keep)</label>
+        <input name="quantity" type="number" class="form-control form-control-dark">
+        <div class="form-text text-muted">Quantity mode:</div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="qty_mode" id="qreplace" value="Replace" checked>
+          <label class="form-check-label" for="qreplace">Replace</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="qty_mode" id="qadd" value="Add">
+          <label class="form-check-label" for="qadd">Add</label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-muted">Price (leave blank to keep)</label>
+        <input name="price" type="number" step="0.01" class="form-control form-control-dark">
+        <div class="form-text text-muted">Price mode:</div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="price_mode" id="preplace" value="Replace" checked>
+          <label class="form-check-label" for="preplace">Replace</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="price_mode" id="padd" value="Add">
+          <label class="form-check-label" for="padd">Add</label>
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <button class="btn btn-primary me-2" type="submit">Update Item</button>
+        <a class="btn btn-secondary" href="{{ url_for('index') }}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

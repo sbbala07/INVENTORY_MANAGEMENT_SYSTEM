@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card bg-card mx-auto" style="max-width:640px">
+  <div class="card-body">
+    <h5 class="card-title text-white">Delete Item</h5>
+    <form method="post" action="{{ url_for('delete_item') }}">
+      <div class="mb-3">
+        <label class="form-label text-muted">Select Item</label>
+        <select name="item_id_select" class="form-select form-select-dark">
+          <option value="">-- choose item --</option>
+          {% for iid, d in inventory.items() %}
+            <option value="{{ iid }}">{{ iid }} — {{ d.name }} ({{ d.quantity }})</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-muted">Delete Mode</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="delete_mode" id="full" value="full" checked>
+          <label class="form-check-label" for="full">Delete entire item</label>
+        </div>
+        <div class="form-check mt-2">
+          <input class="form-check-input" type="radio" name="delete_mode" id="partial" value="partial">
+          <label class="form-check-label" for="partial">Remove a quantity (partial delete)</label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-muted">If partial — qty to remove</label>
+        <input name="partial_qty" type="number" min="1" class="form-control form-control-dark">
+      </div>
+
+      <div class="d-flex">
+        <button class="btn btn-danger me-2" type="submit">Delete</button>
+        <a class="btn btn-secondary" href="{{ url_for('index') }}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

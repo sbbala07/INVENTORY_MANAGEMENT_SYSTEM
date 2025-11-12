@@ -1,0 +1,57 @@
+{
+    "A101": {
+        "name": "Apple",
+        "quantity": 5,
+        "price": 25.0
+    },
+    "M101": {
+        "name": "Mango",
+        "quantity": 25,
+        "price": 10.0
+    },
+    "B101": {
+        "name": "Banana",
+        "quantity": 20,
+        "price": 10.0
+    },
+    "C11": {
+        "name": "Carrot",
+        "quantity": 4,
+        "price": 5.0
+    },
+    "A102": {
+        "name": "Avocado",
+        "quantity": 3,
+        "price": 40.0
+    },
+    "O1": {
+        "name": "Orange",
+        "quantity": 5,
+        "price": 10.0
+    },
+    "A111": {
+        "name": "Amla",
+        "quantity": 50,
+        "price": 5.0
+    },
+    "B12": {
+        "name": "Biscuit",
+        "quantity": 50,
+        "price": 25.0
+    },
+    "C101": {
+        "name": "Carrot",
+        "quantity": 100,
+        "price": 10.0
+    },
+    "W01": {
+        "name": "Water",
+        "quantity": 10,
+        "price": 20.0
+    },
+    "B11": {
+        "name": "Beetroot",
+        "quantity": 50,
+        "price": 10.0
+    }
+}
